@@ -1,0 +1,7 @@
+{
+  "model_name": "MobileNet",
+  "input_scale": 255.0,
+  "img_size": 128,
+  "val_acc": 0.75,
+  "test_acc": 0.6933333277702332
+}
