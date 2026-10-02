@@ -3,3 +3,4 @@ gradio>=6.0,<7        # the app uses Gradio 6 syntax
 numpy
 Pillow
 ai-edge-litert
+streamlit
