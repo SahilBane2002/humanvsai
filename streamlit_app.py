@@ -1,4 +1,4 @@
-
+"""Spot the fake: Streamlit version of the game (the Gradio version in app.py runs on Render)."""
 import base64
 import csv
 import io
@@ -111,8 +111,22 @@ CSS = """
 .game.verdict .truth.real { color: var(--real); }
 .game.verdict .truth.fake { color: var(--fake); }
 .game.verdict .hint { color: var(--muted); }
-div[data-testid="stButton"] > button, div.stButton > button { width: 100%; min-height: 60px; }
-div[data-testid="stButton"] > button p, div.stButton > button p { font-size: 18px; font-weight: 600; }
+/* Always a light page, whatever Streamlit theme the visitor has (dark mode made the text invisible) */
+.stApp, [data-testid="stAppViewContainer"], [data-testid="stMain"] { background: #f6f7f9 !important; }
+header[data-testid="stHeader"] { background: transparent !important; }
+/* Buttons: full width, our own colours in every theme */
+div[data-testid="stElementContainer"]:has(div[data-testid="stButton"]),
+div[data-testid="stButton"], div[data-testid="stButton"] > div { width: 100% !important; }
+div[data-testid="stButton"] button {
+  width: 100% !important; min-height: 60px; border-radius: 8px;
+  background: #ffffff !important; color: #111827 !important; border: 1px solid #c9d0d9 !important; }
+div[data-testid="stButton"] button:hover { border-color: #334155 !important; }
+div[data-testid="stButton"] button[kind="primary"],
+div[data-testid="stButton"] button[data-testid="stBaseButton-primary"] {
+  background: #334155 !important; color: #ffffff !important; border-color: #334155 !important; }
+div[data-testid="stButton"] button:disabled { opacity: 0.45; }
+div[data-testid="stButton"] button p { color: inherit !important; font-family: 'Archivo', system-ui, sans-serif;
+  font-size: 18px; font-weight: 600; }
 </style>
 """
 
